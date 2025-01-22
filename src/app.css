@@ -1,3 +1,167 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+:root {
+	--color-background: oklch(99.5% 0 0);
+	--color-foreground: oklch(10% 0 0);
+
+	--color-primary: oklch(50% 0.20 303);
+
+	--color-border: oklch(85% 0 0);
+
+	--color-muted: oklch(85% 0 0);
+	--color-muted-foreground: oklch(75% 0 0);
+
+	--step--2: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+	--step--1: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
+	--step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+	--step-1: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
+	--step-2: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
+	--step-3: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
+	--step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
+	--step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
+
+	--font-size-xs: var(--step--2);
+	--font-size-base: var(--step-0);
+	--font-size-sm: var(--step--1);
+	--font-size-lg: var(--step-1);
+	--font-size-xl: var(--step-2);
+	--font-size-2xl: var(--step-3);
+	--font-size-3xl: var(--step-4);
+	--font-size-4xl: var(--step-5);
+}
+html {
+    color: var(--color-foreground);
+    @apply bg-zinc-100;
+
+}
+body {
+	font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    @apply antialiased;
+    max-width: 48rem;
+    margin-inline: 1rem;
+
+    @apply xl:mx-auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 0.5rem;
+    @apply md:px-0;
+    @apply flex-auto;
+    min-width: 0;
+    background-color: var(--color-background);
+	border-inline: 1px solid var(--color-border);
+    gap: 2rem;
+
+    & section {
+        padding-inline: 4rem;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    max-width: 20ch;
+    text-wrap: balance;
+    line-height: 1.2;
+}
+
+body, p {
+    max-width: 65ch;
+    text-wrap: pretty;
+    line-height: 1.5;
+}
+
+h1 {
+	font-size: var(--font-size-4xl);
+}
+
+h2 {
+	font-size: var(--font-size-3xl);
+}
+
+h3 {
+	font-size: var(--font-size-2xl);
+}
+
+h4 {
+	font-size: var(--font-size-xl);
+}
+
+h5 {
+	font-size: var(--font-size-lg);
+}
+
+small {
+	font-size: var(--font-size-sm);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4rem;
+    margin-top: 1.5rem;
+	nav ul {
+		display: flex;
+        @apply text-sm;
+		flex-direction: row;
+		padding-inline: 2rem;
+		padding-block: 0.75rem;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		background-color: var(--color-background);
+		color: var(--color-foreground);
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--color-border);
+        @apply rounded-full;
+        max-width: 36rem;
+        font-weight: 600;
+
+		& a {
+			text-decoration: none;
+
+			&:hover {
+				color: var(--color-primary);
+			}
+
+			&.active {
+                position: relative;
+                color: var(--color-primary);
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 1.9rem;
+                    left: -10%;
+                    width: 120%;
+                    height: 1px;
+                    background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+                }
+			}
+		}
+	}
+}
+
+footer {
+    border-block-start: 1px solid var(--color-border);
+    padding-block: 2rem;
+    padding-inline: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & nav ul {
+        display: flex;
+        gap: 2rem;
+        @apply text-sm;
+    }
+
+    & p {
+        @apply text-sm;
+        color: var(--color-muted-foreground);
+    }
+}
