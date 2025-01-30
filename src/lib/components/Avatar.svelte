@@ -16,16 +16,17 @@
   }>();
 
   const defaultAvatarUrl = "https://api.dicebear.com/9.x/lorelei/svg?seed=Alexander&beardProbability=100&scale=120&backgroundColor=663399&backgroundType=gradientLinear";
+
 </script>
 
-<a href="/" class={isHome ? 'relative top-20 scale-125 left-2' : 'relative top-0 scale-100 left-0'}>
+<a href="/" class={isHome ? 'is-home relative top-20 scale-125 left-2' : 'relative top-0 scale-100 left-0'}>
   <img
     src={defaultAvatarUrl}
     {alt}
-  class="avatar {className}"
-  style="width: {size}; height: {size};"
-  onerror={(e) => {
-    // Fallback handling if the image fails to load
+    class="avatar {className}"
+    style="width: {size}; height: {size};"
+    onerror={(e) => {
+      // Fallback handling if the image fails to load
       console.error("Failed to load avatar image:", e);
     }}
   />
@@ -38,5 +39,6 @@
     background-color: var(--color-background);
     border: 1px solid #e2e8f0;
     box-shadow: 0 2px 5px 0 #e2e8f0;
+    view-transition-name: avatar;
   }
 </style>
