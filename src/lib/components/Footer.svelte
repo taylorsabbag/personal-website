@@ -1,15 +1,20 @@
+<script lang="ts">
+	const navItems = [
+		{ href: '/about', text: 'About' },
+		{ href: '/articles', text: 'Articles' },
+		{ href: '/projects', text: 'Projects' },
+		{ href: '/contact', text: 'Contact' }
+	];
+</script>
+
 <footer>
 	<nav>
 		<ul>
-			<li>
-				<a href="/">Home</a>
-			</li>
-			<li>
-				<a href="/about">About</a>
-			</li>
-			<li>
-				<a href="/articles">Articles</a>
-			</li>
+			{#each navItems as {href, text}}
+				<li>
+					<a {href}>{text}</a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 	<p>
