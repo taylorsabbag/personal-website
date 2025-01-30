@@ -2,14 +2,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@view-transition {
+    navigation: auto;
+}
+
 :root {
 	--color-background: oklch(99.5% 0 0);
 	--color-foreground: oklch(10% 0 0);
-
+    
 	--color-primary: oklch(50% 0.20 303);
 
 	--color-border: oklch(85% 0 0);
-
+    
 	--color-muted: oklch(85% 0 0);
 	--color-muted-foreground: oklch(75% 0 0);
 
@@ -40,10 +44,10 @@ body {
 	font-size: var(--font-size-base);
     background-color: var(--color-background);
     @apply antialiased;
-    max-width: 48rem;
+    max-width: 80rem;
     margin-inline: 1rem;
 
-    @apply xl:mx-auto;
+    @apply 2xl:mx-auto;
 }
 
 main {
@@ -127,6 +131,17 @@ header {
 
 			&:hover {
 				color: var(--color-primary);
+                position: relative;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 1.9rem;
+                    left: -10%;
+                    width: 120%;
+                    height: 1px;
+                    background: linear-gradient(to right, transparent, oklch(from var(--color-primary) 55% 0.4 h), transparent);
+                }
 			}
 
 			&.active {
@@ -139,7 +154,7 @@ header {
                     left: -10%;
                     width: 120%;
                     height: 1px;
-                    background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+                    background: linear-gradient(to right, transparent, oklch(from var(--color-primary) 55% 0.4 h), transparent);
                 }
 			}
 		}
