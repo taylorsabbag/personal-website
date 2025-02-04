@@ -46,7 +46,6 @@ body {
     @apply antialiased;
     max-width: 80rem;
     margin-inline: 1rem;
-
     @apply 2xl:mx-auto;
 }
 

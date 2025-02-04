@@ -39,9 +39,5 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run"
 	},
-	"type": "module",
-	"dependencies": {
-		"@types/howler": "^2.2.12",
-		"howler": "^2.2.4"
-	}
+	"type": "module"
 }
