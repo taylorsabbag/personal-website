@@ -21,9 +21,9 @@
 
 {#snippet galleryImage({ src, alt, rotation, isButton }: GalleryImageParams)}
 	{#if isButton}
-		<button 
-			class="image-button" 
-			onclick={() => isFlipped = !isFlipped} 
+		<button
+			class="image-button"
+			onclick={() => (isFlipped = !isFlipped)}
 			style="--rotation: {rotation}deg"
 			class:isFlipped
 		>
@@ -95,7 +95,7 @@
 		height: 320px;
 		object-fit: cover;
 		border-radius: 1rem;
-    display: block;
+		display: block;
 	}
 
 	.image-button {
@@ -110,25 +110,24 @@
 		height: 320px;
 		flex: 0 0 auto;
 		transform: rotate(var(--rotation));
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 0.2);
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 0.2);
 		transition: all 0.3s ease;
 		transform-style: preserve-3d;
 		animation: jiggle 2s ease-in-out 2s infinite alternate;
-    border-radius: 1rem;
-
+		border-radius: 1rem;
 
 		&:hover {
 			transform: rotate(0deg) scale(1.05);
 			animation: none;
-      box-shadow: 0 8px 12px -1px rgb(0 0 0 / 0.4);
+			box-shadow: 0 8px 12px -1px rgb(0 0 0 / 0.4);
 		}
 
 		&.isFlipped {
 			transform: rotateY(180deg) scale(2) translate(-50%, -50%);
 			z-index: 10;
-      position: absolute;
-      left: 50%;
-      top: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
 		}
 	}
 
@@ -158,8 +157,8 @@
 		align-items: center;
 		justify-content: center;
 		padding: 1rem;
-    border: 4px solid white;
-    outline: 2px solid black;
+		border: 4px solid white;
+		outline: 2px solid black;
 	}
 
 	.content {

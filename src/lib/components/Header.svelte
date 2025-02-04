@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Avatar from '$lib/components/Avatar.svelte';
+	import { isMuted } from '$lib/stores/audio';
+	
 	const navItems = [
 		{ href: '/about', text: 'About' },
 		{ href: '/articles', text: 'Articles' },
@@ -18,7 +20,10 @@
 			{/each}
 		</ul>
 	</nav>
-	{@render ThemeToggle()}
+	<div class="flex gap-2">
+		{@render MuteToggle()}
+		{@render ThemeToggle()}
+	</div>
 </header>
 
 {#snippet NavItem(href: string, text: string)}
@@ -27,8 +32,31 @@
 	</li>
 {/snippet}
 
+{#snippet MuteToggle()}
+	<button 
+		type="button" 
+		class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+		aria-label={$isMuted ? "Unmute sound effects" : "Mute sound effects"}
+		on:click={() => isMuted.update(v => !v)}
+	>
+		{#if $isMuted}
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+				<path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+			</svg>
+		{:else}
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+				<path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414z" clip-rule="evenodd" />
+			</svg>
+		{/if}
+	</button>
+{/snippet}
+
 {#snippet ThemeToggle()}
-	<button type="button" aria-label="Toggle theme">
+	<button 
+		type="button" 
+		class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+		aria-label="Toggle theme"
+	>
 		<svg
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
@@ -55,3 +83,30 @@
 		</svg>
 	</button>
 {/snippet}
+
+<style>
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	nav ul {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: var(--color-primary);
+	}
+
+	a.active {
+		color: var(--color-primary);
+		font-weight: 500;
+	}
+</style>
