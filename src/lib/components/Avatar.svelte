@@ -12,7 +12,7 @@
 	let canAutoplay = false;
 	let userHasInteracted = false;
 
-	// Handle mute/unmute and page navigation cleanup
+	// Handle mute/unmute
 	$effect(() => {
 		if ($isMuted) {
 			// Stop all sounds when muted
@@ -27,18 +27,6 @@
 			howlerBank[currentIndex].play();
 			currHowlPlaying = howlerBank[currentIndex];
 		}
-
-		// Cleanup function to stop all sounds when component is destroyed
-		return () => {
-			for (const howl of howlerBank) {
-				howl.stop();
-			}
-			if (currHowlPlaying?.playing()) {
-				currHowlPlaying.stop();
-			}
-			currHowlPlaying = null;
-			currentIndex = 0;
-		};
 	});
 
 	// Check autoplay capability and set up interaction listener
