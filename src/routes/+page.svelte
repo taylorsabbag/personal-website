@@ -7,7 +7,7 @@
 <section class="space-y-4">
 	<h1>Things About Me</h1>
 	<p>
-		I'm currently the co-founder, CTO, and lead software engineer at Evexia Inc. building a real revolution in
+		I'm the Co-Founder, CTO, and Lead Software Engineer at Evexia Inc. building a real revolution in
 		mental health.
 	</p>
 	<p>

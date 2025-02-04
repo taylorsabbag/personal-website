@@ -45,8 +45,7 @@ body {
     background-color: var(--color-background);
     @apply antialiased;
     max-width: 80rem;
-    margin-inline: 1rem;
-    @apply 2xl:mx-auto;
+    margin-inline: auto;
 }
 
 main {
@@ -177,5 +176,20 @@ footer {
     & p {
         @apply text-sm;
         color: var(--color-muted-foreground);
+    }
+}
+
+a:not(header a):not(footer a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 0.1em;
+    transition: color 0.3s ease-in-out, text-decoration-color 0.3s ease-in-out, text-underline-offset 0.3s ease-in-out;
+
+    &:hover {
+        color: var(--color-secondary);
+        text-decoration-color: var(--color-secondary);
+        text-underline-offset: 0.25rem;
     }
 }

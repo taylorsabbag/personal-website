@@ -2,9 +2,6 @@
 	import { page } from '$app/state';
 	import { isMuted } from '$lib/stores/audio';
 
-	/**
-	 * Type definition for a greeting message
-	 */
 	type Greeting = {
 		/** The text to display */
 		text: string;
@@ -14,9 +11,6 @@
 		stayVisible?: boolean;
 	};
 
-	/**
-	 * Predefined greetings with their associated sound files
-	 */
 	const greetings: Greeting[] = [
 		{ text: 'Welcome to my personal website', sound: '/sounds/greeting-1.wav' },
 		{ text: 'My name is Taylor Sabbag', sound: '/sounds/greeting-2.wav' },
@@ -25,17 +19,7 @@
 
 	let isHome = $derived(page.url.pathname === '/');
 
-	/**
-	 * Props for the Avatar component
-	 * @property {string} alt - Alternative text for the avatar image
-	 * @property {string} [size="40px"] - Size of the avatar (width and height)
-	 * @property {string} [className=""] - Additional CSS classes to apply
-	 */
-	let {
-		alt,
-		size = '50px',
-		className = ''
-	} = $props<{
+	let { alt, size = '50px', className = '' } = $props<{
 		alt: string;
 		size?: string;
 		className?: string;
@@ -162,7 +146,7 @@
 
 <a
 	href="/"
-	class={isHome ? 'is-home relative left-2 top-20 scale-125' : 'relative left-0 top-0 scale-100'}
+	class={isHome ? 'is-home relative left-2 top-20 scale-150' : 'relative left-0 top-0 scale-100'}
 >
 	<img
 		src={defaultAvatarUrl}
@@ -216,7 +200,7 @@
 		position: fixed;
 		margin-left: 1rem;
 		background-color: var(--color-background);
-		@apply rounded-full;
+		border-radius: 9999px;
 		border: 1px solid var(--color-border);
 		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 		margin-block-end: -0.25rem;
