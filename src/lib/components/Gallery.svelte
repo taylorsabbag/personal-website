@@ -73,6 +73,11 @@
 		animation: scroll-x linear both;
 		animation-timeline: scroll();
 		animation-range: 0 100vh;
+
+		&:has(> *:hover) > :not(:hover) {
+			opacity: 0.5;
+			scale: 0.9;
+		}
 	}
 
 	.image-wrapper {
