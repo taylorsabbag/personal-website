@@ -21,3 +21,25 @@
 		&copy; {new Date().getFullYear()} Taylor Sabbag. All rights reserved.
 	</p>
 </footer>
+
+<style>
+	footer {
+		border-block-start: 1px solid var(--color-border);
+		padding-block: 2rem;
+		padding-inline: 4rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+    & nav ul {
+        display: flex;
+        gap: 2rem;
+        @apply text-sm;
+    }
+
+    & p {
+        @apply text-sm;
+        color: var(--color-muted-foreground);
+    }
+}
+</style>
