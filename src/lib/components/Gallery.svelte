@@ -94,7 +94,6 @@
 </div>
 
 <style>
-	@import 'https://unpkg.com/open-props/easings.min.css';
 	.gallery-container {
 		width: 100vw;
 		position: relative;
