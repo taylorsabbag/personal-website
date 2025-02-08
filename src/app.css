@@ -27,7 +27,7 @@
     navigation: auto;
 }
 
-:root {
+@theme {
 	--color-background: oklch(99.5% 0 0);
 	--color-foreground: oklch(10% 0 0);
     
@@ -38,15 +38,6 @@
 	--color-muted: oklch(85% 0 0);
 	--color-muted-foreground: oklch(75% 0 0);
 
-	--step--2: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
-	--step--1: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
-	--step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
-	--step-1: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
-	--step-2: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
-	--step-3: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
-	--step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
-	--step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
-
 	--text-xs: var(--step--2);
 	--text-base: var(--step-0);
 	--text-sm: var(--step--1);
@@ -56,13 +47,24 @@
 	--text-3xl: var(--step-4);
 	--text-4xl: var(--step-5);
 }
+
+:root {
+    --step--2: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+	--step--1: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
+	--step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+	--step-1: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
+	--step-2: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
+	--step-3: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
+	--step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
+	--step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
+}
 html {
     color: var(--color-foreground);
     @apply bg-zinc-100;
 
 }
 body {
-	font-size: var(--font-size-base);
+	font-size: var(--text-base);
     background-color: var(--color-background);
     @apply antialiased;
     max-width: 80rem;
@@ -98,27 +100,27 @@ body, p {
 }
 
 h1 {
-	font-size: var(--font-size-4xl);
+	font-size: var(--text-4xl);
 }
 
 h2 {
-	font-size: var(--font-size-3xl);
+	font-size: var(--text-3xl);
 }
 
 h3 {
-	font-size: var(--font-size-2xl);
+	font-size: var(--text-2xl);
 }
 
 h4 {
-	font-size: var(--font-size-xl);
+	font-size: var(--text-xl);
 }
 
 h5 {
-	font-size: var(--font-size-lg);
+	font-size: var(--text-lg);
 }
 
 small {
-	font-size: var(--font-size-sm);
+	font-size: var(--text-sm);
 }
 
 a:not(header a):not(footer a) {
