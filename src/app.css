@@ -67,7 +67,7 @@ body {
 	font-size: var(--text-base);
     background-color: var(--color-background);
     @apply antialiased;
-    max-width: 80rem;
+    max-width: 75ch;
     margin-inline: auto;
 }
 
@@ -79,8 +79,10 @@ main {
     @apply md:px-0;
     min-width: 0;
     background-color: var(--color-background);
-	border-inline: 1px solid var(--color-border);
+    border-inline: 1px solid var(--color-border);
     gap: 2rem;
+    width: min(100%, 75ch);
+    margin-inline: auto;
     & section {
         padding-inline: 4rem;
     }
@@ -93,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-body, p {
+p {
     max-width: 65ch;
     text-wrap: pretty;
     line-height: 1.5;
