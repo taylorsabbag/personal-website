@@ -34,11 +34,11 @@
     & nav ul {
         display: flex;
         gap: 2rem;
-        @apply text-sm;
+        font-size: var(--text-sm);
     }
 
     & p {
-        @apply text-sm;
+        font-size: var(--text-sm);
         color: var(--color-muted-foreground);
     }
 }

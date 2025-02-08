@@ -1,7 +1,27 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'https://unpkg.com/open-props/easings.min.css';
+@import 'tailwindcss';
+@import 'https://unpkg.com/open-props/easings.min.css' layer(utilities);
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/container-queries';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @view-transition {
     navigation: auto;
@@ -27,14 +47,14 @@
 	--step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
 	--step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
 
-	--font-size-xs: var(--step--2);
-	--font-size-base: var(--step-0);
-	--font-size-sm: var(--step--1);
-	--font-size-lg: var(--step-1);
-	--font-size-xl: var(--step-2);
-	--font-size-2xl: var(--step-3);
-	--font-size-3xl: var(--step-4);
-	--font-size-4xl: var(--step-5);
+	--text-xs: var(--step--2);
+	--text-base: var(--step-0);
+	--text-sm: var(--step--1);
+	--text-lg: var(--step-1);
+	--text-xl: var(--step-2);
+	--text-2xl: var(--step-3);
+	--text-3xl: var(--step-4);
+	--text-4xl: var(--step-5);
 }
 html {
     color: var(--color-foreground);
@@ -51,15 +71,14 @@ body {
 
 main {
     display: flex;
+    flex: auto;
     flex-direction: column;
     padding-inline: 0.5rem;
     @apply md:px-0;
-    @apply flex-auto;
     min-width: 0;
     background-color: var(--color-background);
 	border-inline: 1px solid var(--color-border);
     gap: 2rem;
-
     & section {
         padding-inline: 4rem;
     }

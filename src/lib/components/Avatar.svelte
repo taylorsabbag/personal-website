@@ -165,7 +165,7 @@
 			class:clicked={startGreetings}
 			onclick={() => (startGreetings = true)}
 		>
-			<span class="typewriter-text !w-full opacity-100">Hi!</span>
+			<span class="typewriter-text w-full! opacity-100">Hi!</span>
 		</button>
 		{#if startGreetings}
 			{#each messages as { text, delay, duration, stayVisible, onStart }}
